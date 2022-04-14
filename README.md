@@ -1,10 +1,16 @@
-## This project is created with SvelteKit and TailwindCSS
+# Grid Painter
 
-# How
-```
-git clone [this repo]
-npm i
-npm run dev
-```
+this is created for painting with commands in twitch.tv/narzelive stream for his mini r/place.
 
-> Note: change the "name" in the package.json to your desired name too
+create as many mini amongus as you want
+
+## How to use
+
+- Paint anything with colors of the hex code input above
+- If you want to unpaint something refresh to do again (yes deal with it)
+- Change the command prefix or something for the .txt file
+- When you're done click "Download .txt"
+
+### Todo
+
+- Write the array into a .txt file to download
