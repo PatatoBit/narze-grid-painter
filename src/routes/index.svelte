@@ -47,6 +47,10 @@
 	let textstring = '';
 </script>
 
+<svelte:head>
+	<title>Grid Painter</title>
+</svelte:head>
+
 <main>
 	<div class="flex flex-col justify-center items-center w-screen h-full m-2">
 		<div class="flex">
