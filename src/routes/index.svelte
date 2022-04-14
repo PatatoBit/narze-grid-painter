@@ -117,6 +117,7 @@
 				});
 
 				downloadFile('commands.txt', textstring);
+				textstring = '';
 			}}>Download .txt</button
 		>
 	</div>
