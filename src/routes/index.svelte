@@ -105,19 +105,13 @@
 			on:click={() => {
 				if (pixels.length > 0) {
 					pixels.forEach((pixel) => {
-						console.log(`${command} ${pixel[0]} ${pixel[1]} ${pixel[2]}`);
+						textstring += `${command} ${pixel[0]} ${pixel[1]} ${pixel[2]} \n`;
 					});
+					downloadFile('commands.txt', textstring);
+					textstring = '';
 				} else {
 					alert("you didn't paint anything bro");
 				}
-
-				pixels.forEach((pixel) => {
-					textstring += `${command} ${pixel[0]} ${pixel[1]} ${pixel[2]} \n`;
-					console.log(textstring);
-				});
-
-				downloadFile('commands.txt', textstring);
-				textstring = '';
 			}}>Download .txt</button
 		>
 	</div>
