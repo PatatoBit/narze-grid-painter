@@ -112,7 +112,7 @@
 				}
 
 				pixels.forEach((pixel) => {
-					textstring += `\n${command} ${pixel[0]} ${pixel[1]} ${pixel[2]}`;
+					textstring += `${command} ${pixel[0]} ${pixel[1]} ${pixel[2]} \n`;
 					console.log(textstring);
 				});
 
