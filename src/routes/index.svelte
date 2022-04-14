@@ -1,5 +1,7 @@
 <script lang="ts">
+	import fs from 'fs';
 	import { onMount } from 'svelte';
+	import { text } from 'svelte/internal';
 	const height = 32;
 	const width = 32;
 	export let data: { place: Array<[number, number, string]> };
@@ -22,6 +24,19 @@
 		return includes;
 	}
 
+	function downloadFile(filename, text) {
+		var element = document.createElement('a');
+		element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+		element.setAttribute('download', filename);
+
+		element.style.display = 'none';
+		document.body.appendChild(element);
+
+		element.click();
+
+		document.body.removeChild(element);
+	}
+
 	onMount(() => {
 		paintCache();
 	});
@@ -29,6 +44,7 @@
 	let pixels = [];
 	let command = '!p';
 	let color = '000000';
+	let textstring = '';
 </script>
 
 <main>
@@ -46,7 +62,7 @@
 				/>
 			</label>
 			<label class="relative block">
-				<span class="text-base">Command</span>
+				<span class="text-lg">Command</span>
 				<input
 					class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-6xl"
 					placeholder="Command"
@@ -90,6 +106,13 @@
 				} else {
 					alert("you didn't paint anything bro");
 				}
+
+				pixels.forEach((pixel) => {
+					textstring += `\n${command} ${pixel[0]} ${pixel[1]} ${pixel[2]}`;
+					console.log(textstring);
+				});
+
+				downloadFile('place.txt', textstring);
 			}}>Download .txt</button
 		>
 	</div>
