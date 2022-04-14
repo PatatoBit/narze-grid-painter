@@ -14,3 +14,5 @@ create as many mini amongus as you want
 ### Todo
 
 - Write the array into a .txt file to download
+
+> Yes I did copy most of the stuff from [narze](https://github.com/narze/streamie/blob/main/web/src/routes/place.svelte)
