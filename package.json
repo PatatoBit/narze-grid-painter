@@ -1,5 +1,5 @@
 {
-  "name": "sveltekit-tailwind-template",
+  "name": "grid-painter",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
