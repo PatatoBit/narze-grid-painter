@@ -54,7 +54,7 @@
 				<span class="text-lg">Color Hex</span>
 
 				<input
-					class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-6xl"
+					class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-lg"
 					placeholder="Color Hex"
 					type="text"
 					name="search"
@@ -64,7 +64,7 @@
 			<label class="relative block">
 				<span class="text-lg">Command</span>
 				<input
-					class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-6xl"
+					class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-lg"
 					placeholder="Command"
 					type="text"
 					name="search"
@@ -77,7 +77,7 @@
 				<div class="flex">
 					{#each row as cell, cellIndex}
 						<div
-							class="flex flex-row border h-12 w-12 border-gray-100"
+							class="flex flex-row border h-6 w-6 border-gray-100"
 							style={`background-color: #${cell}; border-color: #${cell}`}
 							on:click={() => {
 								paint(cellIndex, rowIndex, color);
@@ -97,7 +97,7 @@
 		</div>
 
 		<button
-			class="text-7xl border border-black rounded-lg p-5"
+			class="text-lg border border-black rounded-lg p-5"
 			on:click={() => {
 				if (pixels.length > 0) {
 					pixels.forEach((pixel) => {
@@ -112,7 +112,7 @@
 					console.log(textstring);
 				});
 
-				downloadFile('place.txt', textstring);
+				downloadFile('commands.txt', textstring);
 			}}>Download .txt</button
 		>
 	</div>
