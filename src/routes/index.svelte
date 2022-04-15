@@ -37,6 +37,16 @@
 		document.body.removeChild(element);
 	}
 
+	function downloadJson(text, name) {
+		const a = document.createElement('a');
+		const type = name.split('.').pop();
+		a.href = URL.createObjectURL(
+			new Blob([text], { type: `text/${type === 'txt' ? 'plain' : type}` })
+		);
+		a.download = name;
+		a.click();
+	}
+
 	onMount(() => {
 		paintCache();
 	});
@@ -99,21 +109,32 @@
 				</div>
 			{/each}
 		</div>
-
-		<button
-			class="text-lg border border-black rounded-lg p-5"
-			on:click={() => {
-				if (pixels.length > 0) {
-					pixels.forEach((pixel) => {
-						textstring += `${command} ${pixel[0]} ${pixel[1]} ${pixel[2]} \n`;
-					});
-					downloadFile('commands.txt', textstring);
-					textstring = '';
-				} else {
-					alert("you didn't paint anything bro");
-				}
-			}}>Download .txt</button
-		>
+		<div class="flex">
+			<button
+				class="text-lg border border-black rounded-lg p-5"
+				on:click={() => {
+					if (pixels.length > 0) {
+						pixels.forEach((pixel) => {
+							textstring += `${command} ${pixel[0]} ${pixel[1]} ${pixel[2]} \n`;
+						});
+						downloadFile('commands.txt', textstring);
+						textstring = '';
+					} else {
+						alert("you didn't paint anything bro");
+					}
+				}}>Download .txt</button
+			>
+			<button
+				class="text-lg border border-black rounded-lg p-5"
+				on:click={() => {
+					if (pixels.length > 0) {
+						downloadJson(JSON.stringify(pixels), 'commands.json');
+					} else {
+						alert("you didn't paint anything bro");
+					}
+				}}>Download .json</button
+			>
+		</div>
 	</div>
 </main>
 
